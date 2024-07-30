@@ -1,0 +1,28 @@
+:root{
+    --black: #222831;
+    --gray: #31363F;
+    --teal-color: #76ABAE;
+    --white-color: #EEEEEE;
+}
+
+.mt-nav{
+    background-color: var(--teal-color);
+}
+
+#mt-logo{
+    width: 200px;
+}
+
+.mt-delete{
+    color: var(--white-color);
+    text-decoration: none;
+    border: 1px solid var(--white-color);
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.mt-delete:hover{
+    background-color: var(--white-color);
+    color: var(--teal-color);
+    transition: 0.3s;
+}
