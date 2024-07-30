@@ -15,6 +15,21 @@
     </div>
 </header>
 
+<main>
+    <form action="save_data.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="messaggio">Messaggio:</label>
+        <textarea id="messaggio" name="messaggio" required></textarea><br><br>
+
+        <input type="submit" value="Invia">
+    </form>
+</main>
+
 <?php
     include __DIR__ . "/Views/footer.php"
 ?>
