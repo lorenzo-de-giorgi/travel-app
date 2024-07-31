@@ -16,7 +16,7 @@
 </header>
 
 <main>
-    <form action="save_data.php" method="post">
+    <form action="./www/save_data.php" method="post">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 
