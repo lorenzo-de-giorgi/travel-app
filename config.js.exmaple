@@ -1,0 +1,3 @@
+const TOMTOM_API_KEY = 'YOUR_TOM_TOM_API_KEY';
+
+export { TOMTOM_API_KEY };
