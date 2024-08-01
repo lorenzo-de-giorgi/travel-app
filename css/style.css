@@ -26,3 +26,8 @@
     color: var(--teal-color);
     transition: 0.3s;
 }
+
+#map {
+    width: 100%;
+    height: 500px;
+}
