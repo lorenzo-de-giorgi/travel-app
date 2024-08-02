@@ -46,10 +46,6 @@
                                     <label for="email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Scrivi qui il messaggio"    id="messaggio" name="messaggio" style="height: 100px"></textarea>
-                                    <label for="messaggio">Messaggio</label>
-                                </div>
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             </form>
                         </p>
