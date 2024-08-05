@@ -65,7 +65,7 @@
                                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                                     // Esegui la query
-                                    $sql = 'SELECT nome, email, content FROM test';
+                                    $sql = 'SELECT stage_name, stage_description FROM stages';
                                     $stmt = $pdo->query($sql);
 
                                     // Ciclare attraverso i risultati
@@ -74,23 +74,21 @@
                                         echo '
                                             <thead>
                                                 <tr>
-                                                    <th>Nome</th>
-                                                    <th>Email</th>
-                                                    <th>Messaggio</th>
+                                                    <th>Nome Tappa</th>
+                                                    <th>Descrizione Tappa</th>
                                                 </tr>
                                             </thead>';
                                         echo '<tbody>';
                                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                             echo '<tr>';
-                                            echo '<td>' . htmlspecialchars($row['nome']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['email']) . '</td>';
-                                            echo '<td>' . htmlspecialchars($row['content']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['stage_name']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['stage_description']) . '</td>';
                                             echo '</tr>';
                                         }
                                         echo '</tbody>';
                                         echo '</table>';
                                     } else {
-                                        echo '<p>Nessun risultato trovato.</p>';
+                                        echo '<p>Nessuna tappa presente in questo momento.</p>';
                                     }
                                 } catch (PDOException $e) {
                                     echo '<p class="text-danger">Errore: ' . $e->getMessage() . '</p>';
