@@ -11,6 +11,8 @@
         <link grity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <!-- tomtom map -->
         <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css">
+        <!-- javascript -->
+        <script src="js/script.js" type="module" defer></script>
         <!-- css stylesheet -->
         <link rel="stylesheet" href="css/style.css">
         <title>Travel App</title>
