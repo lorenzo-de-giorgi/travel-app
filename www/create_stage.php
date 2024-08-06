@@ -12,21 +12,29 @@
     <div class="container mt-5">
         <?php
         require 'db.php';
+        include 'functions.php';
+        $config = include('config.php');
+        $apikey = $config['TOMTOM_API_KEY'];
+
 
         // Recupera i dati del form
         $name = isset($_POST['name']) ? $_POST['name'] : '';
         $address = isset($_POST['address']) ? $_POST['address'] : '';
         $description = isset($_POST['description']) ? $_POST['description'] : '';
 
+        $coordinates = getCoordinatesFromAddress($address);
+
         echo "<p>Nome: " . htmlspecialchars($name) . "</p>";
         echo "<p>Indirizzo: " . htmlspecialchars($address) . "</p>";
         echo "<p>Descrizione: " . htmlspecialchars($description) . "</p>";
+        echo "<p>Latitudine: " . htmlspecialchars($coordinates['latitude']) . "</p>";
+        echo "<p>Longitudine: " . htmlspecialchars($coordinates['longitude']) . "</p>";
 
         try {
             // Prepara e esegui la query di inserimento
-            $sql = "INSERT INTO stages (stage_name, stage_address, stage_description) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO stages (stage_name, stage_address, stage_description, stage_latitude, stage_longitude) VALUES (?, ?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$name, $address, $description]);
+            $stmt->execute([$name, $address, $description, $coordinates['latitude'], $coordinates['longitude']]);
 
             echo "<p class='text-success'>Dati salvati con successo</p>";
         } catch (PDOException $e) {
