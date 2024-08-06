@@ -37,14 +37,18 @@
                     <div class="card-body">
                         <h5 class="card-title">Crea Nuova Tappa</h5>
                         <p class="card-text">
-                            <form action="./www/save_data.php" method="POST">
+                            <form action="./www/create_stage.php" method="POST">
                                 <div class="mb-3">
-                                    <label for="nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                    <label for="name" class="form-label">Nome Tappa</label>
+                                    <input placeholder="Inserisci il nome della tappa da creare" type="text" class="form-control" id="name" name="name" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <label for="address" class="form-label">Indirizzo Tapppa</label>
+                                    <input placeholder="Inserisci l'indirizzo della tappa da creare" type="text" class="form-control" id="address" name="address" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Descrizione Tappa</label>
+                                    <input placeholder="Inserisci la descrizione della tappa da creare" type="text" class="form-control" id="description" name="description" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             </form>
@@ -65,7 +69,7 @@
                                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                                     // Esegui la query
-                                    $sql = 'SELECT stage_name, stage_description FROM stages';
+                                    $sql = 'SELECT stage_name, stage_address, stage_description FROM stages';
                                     $stmt = $pdo->query($sql);
 
                                     // Ciclare attraverso i risultati
@@ -75,6 +79,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nome Tappa</th>
+                                                    <th>Indirizzo Tappa</th>
                                                     <th>Descrizione Tappa</th>
                                                 </tr>
                                             </thead>';
@@ -82,6 +87,7 @@
                                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                             echo '<tr>';
                                             echo '<td>' . htmlspecialchars($row['stage_name']) . '</td>';
+                                            echo '<td>' . htmlspecialchars($row['stage_address']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_description']) . '</td>';
                                             echo '</tr>';
                                         }
