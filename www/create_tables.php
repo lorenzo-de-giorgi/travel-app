@@ -10,6 +10,8 @@
             stage_name VARCHAR(255) NOT NULL,
             stage_address VARCHAR(255) NOT NULL,
             stage_description TEXT,
+            stage_latitude DOUBLE NOT NULL,
+            stage_longitude DOUBLE NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );";
