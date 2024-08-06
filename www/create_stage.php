@@ -14,19 +14,19 @@
         require 'db.php';
 
         // Recupera i dati del form
-        $nome = isset($_POST['nome']) ? $_POST['nome'] : '';
-        $email = isset($_POST['email']) ? $_POST['email'] : '';
-        $messaggio = isset($_POST['messaggio']) ? $_POST['messaggio'] : '';
+        $name = isset($_POST['name']) ? $_POST['name'] : '';
+        $address = isset($_POST['address']) ? $_POST['address'] : '';
+        $description = isset($_POST['description']) ? $_POST['description'] : '';
 
-        echo "<p>Nome: " . htmlspecialchars($nome) . "</p>";
-        echo "<p>Email: " . htmlspecialchars($email) . "</p>";
-        echo "<p>Messaggio: " . htmlspecialchars($messaggio) . "</p>";
+        echo "<p>Nome: " . htmlspecialchars($name) . "</p>";
+        echo "<p>Indirizzo: " . htmlspecialchars($address) . "</p>";
+        echo "<p>Descrizione: " . htmlspecialchars($description) . "</p>";
 
         try {
             // Prepara e esegui la query di inserimento
-            $sql = "INSERT INTO test (nome, email, content) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO stages (stage_name, stage_address, stage_description) VALUES (?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$nome, $email, $messaggio]);
+            $stmt->execute([$name, $address, $description]);
 
             echo "<p class='text-success'>Dati salvati con successo</p>";
         } catch (PDOException $e) {
