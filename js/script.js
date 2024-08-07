@@ -24,9 +24,51 @@ window.onload = function() {
         });
     }
 
-    // Recupera i marker dal server e aggiungili alla mappa
+    // Funzione per tracciare l'itinerario tra le tappe e fare il focus sull'itinerario
+    function drawRouteAndFocus(stages) {
+        if (stages.length > 2) {
+            const waypoints = stages.map(stage => [stage.stage_longitude, stage.stage_latitude]);
+            const routeOptions = {
+                key: TOMTOM_API_KEY,
+                locations: waypoints,
+                travelMode: 'car'
+            };
+
+            tt.services.calculateRoute(routeOptions)
+                .then(function(response) {
+                    const geojson = response.toGeoJson();
+                    map.addLayer({
+                        id: 'route',
+                        type: 'line',
+                        source: {
+                            type: 'geojson',
+                            data: geojson
+                        },
+                        paint: {
+                            'line-color': '#4a90e2',
+                            'line-width': 6
+                        }
+                    });
+
+                    // Fare il focus sull'itinerario
+                    const bounds = new tt.LngLatBounds();
+                    waypoints.forEach(function(point) {
+                        bounds.extend(point);
+                    });
+                    map.fitBounds(bounds, { padding: 50 });
+                })
+                .catch(function(error) {
+                    console.error('Errore nel calcolo del percorso:', error);
+                });
+        } else {
+            console.error('Errore: Il numero di tappe deve essere maggiore di 2 per tracciare un itinerario.');
+        }
+    }
+
+    // Recupera i marker dal server, aggiungili alla mappa e traccia l'itinerario
     fetchStages().then(stages => {
         addStagesToMap(stages);
+        drawRouteAndFocus(stages);
     }).catch(error => {
         console.error('Errore nel recupero dei marker:', error);
     });
