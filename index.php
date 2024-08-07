@@ -81,6 +81,7 @@
                                                     <th>Nome Tappa</th>
                                                     <th>Indirizzo Tappa</th>
                                                     <th>Descrizione Tappa</th>
+                                                    <th>Azioni</th>
                                                 </tr>
                                             </thead>';
                                         echo '<tbody>';
@@ -89,6 +90,11 @@
                                             echo '<td>' . htmlspecialchars($row['stage_name']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_address']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_description']) . '</td>';
+                                            echo '<td>
+                                                    <a class="mt-a" href=""><i class="fa-solid fa-check"></i></a>
+                                                    <a class="mt-a" href=""><i class="fa-solid fa-x"></i></a>
+                                                    <a class="mt-a" href=""><i class="fa-solid fa-trash-can"></i></a>
+                                                </td>';
                                             echo '</tr>';
                                         }
                                         echo '</tbody>';
