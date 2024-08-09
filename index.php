@@ -69,7 +69,7 @@
                                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                                     // Esegui la query
-                                    $sql = 'SELECT stage_name, stage_address, stage_description FROM stages';
+                                    $sql = 'SELECT id, stage_name, stage_address, stage_description FROM stages';
                                     $stmt = $pdo->query($sql);
 
                                     // Ciclare attraverso i risultati
@@ -90,12 +90,17 @@
                                             echo '<td>' . htmlspecialchars($row['stage_name']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_address']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_description']) . '</td>';
-                                            echo '<td>
-                                                    <a class="mt-a" href=""><i class="fa-solid fa-check"></i></a>
-                                                    <a class="mt-a" href=""><i class="fa-solid fa-x"></i></a>
-                                                    <a class="mt-a" href=""><i class="fa-solid fa-trash-can"></i></a>
-                                                </td>';
-                                            echo '</tr>';
+                                            echo '<td>';
+                                                if (isset($row['id'])) {
+                                                    echo '<form method="post" action="./www/delete_stage.php">';
+                                                    echo '<input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '">';
+                                                    echo '<button type="submit" class="mt-a"><i class="fa-solid fa-trash-can"></i></button>';
+                                                    echo '</form>';
+                                                } else {
+                                                    echo '<p class="text-danger">ID non trovato</p>';
+                                                }
+                                                echo '</tr>';
+                                            echo '</td>';
                                         }
                                         echo '</tbody>';
                                         echo '</table>';
