@@ -90,7 +90,8 @@
                                             echo '<td>' . htmlspecialchars($row['stage_name']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_address']) . '</td>';
                                             echo '<td>' . htmlspecialchars($row['stage_description']) . '</td>';
-                                            echo '<td>';
+                                            echo '<td class="d-flex">';
+                                                echo'<button class="mt-a" href=""><i class="fa-solid fa-check"></i></button>';
                                                 if (isset($row['id'])) {
                                                     echo '<form method="post" action="./www/delete_stage.php">';
                                                     echo '<input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '">';
