@@ -1,0 +1,6 @@
+Create this file in this folder: ./www/config.php
+
+<?php
+    return [
+        'TOMTOM_API_KEY' => 'YOUR_TOMTOM_API_KEY'
+    ]
