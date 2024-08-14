@@ -20,14 +20,20 @@ window.onload = function() {
     // Funzione per aggiungere i marker alla mappa
     function addStagesToMap(stages) {
         stages.forEach(function(stage) {
-            new tt.Marker().setLngLat([stage.stage_longitude, stage.stage_latitude]).addTo(map);
+            // Aggiungi il marker solo se stage_completed == 0
+            if (stage.stage_completed == 0) {
+                new tt.Marker().setLngLat([stage.stage_longitude, stage.stage_latitude]).addTo(map);
+            }
         });
     }
 
     // Funzione per tracciare l'itinerario tra le tappe e fare il focus sull'itinerario
     function drawRouteAndFocus(stages) {
-        if (stages.length > 2) {
-            const waypoints = stages.map(stage => [stage.stage_longitude, stage.stage_latitude]);
+        // Filtra solo le tappe non completate
+        const activeStages = stages.filter(stage => stage.stage_completed == 0);
+
+        if (activeStages.length > 2) {
+            const waypoints = activeStages.map(stage => [stage.stage_longitude, stage.stage_latitude]);
             const routeOptions = {
                 key: TOMTOM_API_KEY,
                 locations: waypoints,
