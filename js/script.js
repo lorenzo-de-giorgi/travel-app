@@ -20,10 +20,11 @@ window.onload = function() {
     // Funzione per aggiungere i marker alla mappa
     function addStagesToMap(stages) {
         stages.forEach(function(stage) {
+            new tt.Marker().setLngLat([stage.stage_longitude, stage.stage_latitude]).addTo(map);
             // Aggiungi il marker solo se stage_completed == 0
-            if (stage.stage_completed == 0) {
-                new tt.Marker().setLngLat([stage.stage_longitude, stage.stage_latitude]).addTo(map);
-            }
+            // if (stage.stage_completed == 0) {
+            //     new tt.Marker().setLngLat([stage.stage_longitude, stage.stage_latitude]).addTo(map);
+            // }
         });
     }
 
