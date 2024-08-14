@@ -83,12 +83,12 @@ include __DIR__ . "/Views/header.php";
                                         // stage_completed update
                                         echo '<form method="post" action="./www/update_stage.php">';
                                         echo '<input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '">';
-                                        echo '<button type="submit" class="mt-a">' . ($isCompleted ? '<i class="fa-solid fa-times"></i>' : '<i class="fa-solid fa-check"></i>') . '</button>';
+                                        echo '<button type="submit" class="mt-a btn">' . ($isCompleted ? '<i class="fa-solid fa-times"></i>' : '<i class="fa-solid fa-check"></i>') . '</button>';
                                         echo '</form>';
                                         // stage_delete
                                         echo '<form method="post" action="./www/delete_stage.php">';
                                         echo '<input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '">';
-                                        echo '<button type="submit" class="mt-a"><i class="fa-solid fa-trash-can"></i></button>';
+                                        echo '<button type="submit" class="mt-a btn"><i class="fa-solid fa-trash-can"></i></button>';
                                         echo '</form>';
                                         echo '</tr>';
                                         echo '</td>';
