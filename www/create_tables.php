@@ -22,6 +22,7 @@
 
         CREATE TABLE IF NOT EXISTS stages (
             id INT AUTO_INCREMENT PRIMARY KEY,
+            travel_id INT NOT NULL,
             stage_name VARCHAR(255) NOT NULL,
             stage_address VARCHAR(255) NOT NULL,
             stage_description TEXT,
@@ -29,7 +30,8 @@
             stage_longitude DECIMAL(12, 10) NOT NULL,
             stage_completed BOOLEAN NOT NULL DEFAULT 0,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (travel_id) REFERENCES travels(id) ON DELETE CASCADE
         );
         
         ";
@@ -39,6 +41,3 @@
     } catch (PDOException $e) {
         echo "Error creating tables: " . $e->getMessage();
     }
-
-    // travel_id INT NOT NULL,
-    // FOREIGN KEY (travel_id) REFERENCES travels(id) ON DELETE CASCADE
