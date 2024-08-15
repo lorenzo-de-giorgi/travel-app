@@ -10,6 +10,16 @@
             password VARCHAR(255) NOT NULL
         );
 
+        CREATE TABLE IF NOT EXISTS travels (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            description TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        );
+
         CREATE TABLE IF NOT EXISTS stages (
             id INT AUTO_INCREMENT PRIMARY KEY,
             stage_name VARCHAR(255) NOT NULL,
@@ -32,13 +42,3 @@
 
     // travel_id INT NOT NULL,
     // FOREIGN KEY (travel_id) REFERENCES travels(id) ON DELETE CASCADE
-
-    // CREATE TABLE IF NOT EXISTS travels (
-    //     id INT AUTO_INCREMENT PRIMARY KEY,
-    //     user_id INT NOT NULL,
-    //     name VARCHAR(255) NOT NULL,
-    //     description TEXT,
-    //     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    //     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    //     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-    // );
