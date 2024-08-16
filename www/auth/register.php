@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require '../db.php';
     require '../config.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,6 +13,14 @@
         } else {
             // Hash the password
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+            $servername = "localhost";
+            $username_db = "root";
+            $password = "root";
+            $dbname = "travel-app_db";
+
+            // creo la connessione
+            $conn = new mysqli($servername, $username_db, $password, $dbname);
 
             try {
                 // Prepare the SQL statement
