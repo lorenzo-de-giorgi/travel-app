@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user_id;
             $_SESSION['username'] = $username;
 
-            header("Location: trips.php");
+            header("Location: ../../travels.php");
             exit();
         } else {
             // Password errata

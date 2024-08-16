@@ -8,6 +8,6 @@
         exit();
     } else {
         // se l'utente è loggato rimanda alla pagina dei viaggi
-        header("Location: trips.php");
+        header("Location: travels.php");
         exit();
     }
