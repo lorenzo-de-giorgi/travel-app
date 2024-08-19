@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+:root{
+    --black: #222831;
+    --gray: #31363F;
+    --teal-color: #76ABAE;
+    --white-color: #EEEEEE;
+}
+
+body {
+	/* background: linear-gradient(90deg, var(--white-color), var(--teal-color));		 */
+    background-color: var(--white-color);
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.screen {		
+	background: linear-gradient(90deg, var(--white-color), var(--teal-color));		
+	position: relative;	
+	height: 600px;
+	width: 360px;	
+	box-shadow: 0px 0px 24px var(--teal-color);
+}
+
+.screen__content {
+	z-index: 1;
+	position: relative;	
+	height: 100%;
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.login {
+	width: 320px;
+	padding: 30px;
+	padding-top: 156px;
+}
+
+.login__field {
+	padding: 20px 0px;	
+	position: relative;	
+}
+
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: var(--gray);
+}
+
+.login__input {
+	border: none;
+	border-bottom: 2px solid var(--black);
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: var(--teal-color);
+}
+
+.login__submit {
+	background: var(--white-color);
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid var(--teal-color);
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: var(--teal-color);
+	box-shadow: 0px 2px 2px var(--teal-color);
+	cursor: pointer;
+	transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+	border-color: var(--teal-color);
+	outline: none;
+}
+
+.button__icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: var(--teal-color);
+}
+
+.login-a{
+    color: var(--gray);
+}
