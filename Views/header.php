@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css">
         <script src="js/script.js" type="module" src="script.js"></script>
         <!-- css stylesheet -->
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="./css/style.css">
         <title>Travel App</title>
 
     </head>
