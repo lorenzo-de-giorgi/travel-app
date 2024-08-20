@@ -1,5 +1,8 @@
 <?php
     session_start();
+
+    include "../../Views/header.php";
+
     require '../db.php';
     require '../config.php';
 
@@ -40,9 +43,40 @@
     }
 ?>
 
-<form method="post" action="">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="password_confirm" placeholder="Conferma Password" required>
-    <button type="submit">Register</button>
-</form>
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/login.css">
+        <title>Register</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login" method="POST" action="">
+                        <h2>Register</h2>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input class="login__input" type="text" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input class="login__input" type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input class="login__input" type="password" name="password_confirm" placeholder="Conferma Password" required>
+                        </div>
+                        <button class="button login__submit">
+                            <span class="button__text">Register Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                        <p class="mt-3">Sei già registrato? <a class="login-a" href="./login.php">Accedi</a></p>			
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
