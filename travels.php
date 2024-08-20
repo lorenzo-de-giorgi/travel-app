@@ -1,38 +1,41 @@
 <?php
-session_start();
 
-// Controlla se l'utente è loggato
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+    include __DIR__ . "/Views/header.php";
 
-// Connessione al database
-$host = 'localhost';
-$dbname = 'travel-app_db';
-$username_db = 'root'; 
-$password_db = 'root'; 
+    session_start();
 
-$conn = new mysqli($host, $username_db, $password_db, $dbname);
+    // Controlla se l'utente è loggato
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    }
 
-// Controlla la connessione
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
-}
+    // Connessione al database
+    $host = 'localhost';
+    $dbname = 'travel-app_db';
+    $username_db = 'root'; 
+    $password_db = 'root'; 
 
-$user_id = $_SESSION['user_id'];
-$stmt = $conn->prepare("SELECT id, name FROM travels WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+    $conn = new mysqli($host, $username_db, $password_db, $dbname);
 
-$trips = [];
-while ($row = $result->fetch_assoc()) {
-    $trips[] = $row;
-}
+    // Controlla la connessione
+    if ($conn->connect_error) {
+        die("Connessione fallita: " . $conn->connect_error);
+    }
 
-$stmt->close();
-$conn->close();
+    $user_id = $_SESSION['user_id'];
+    $stmt = $conn->prepare("SELECT id, name FROM travels WHERE user_id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $trips = [];
+    while ($row = $result->fetch_assoc()) {
+        $trips[] = $row;
+    }
+
+    $stmt->close();
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +43,22 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/travels.css">
     <title>I Miei Viaggi</title>
 </head>
 <body>
+    <header>
+        <div class="mt-nav">
+            <div class="container">
+                <nav class="d-flex justify-content-between align-items-center">
+                    <img src="./img/logo.png" alt="logo" id="mt-logo">
+                    <ul class="list-unstyled">
+                        <!-- <li class="mt-3"><a class="mt-delete" href="">Cancella Viaggio</a></li> -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
     <h2>I Miei Viaggi</h2>
     <ul>
         <?php if (!empty($trips)): ?>
