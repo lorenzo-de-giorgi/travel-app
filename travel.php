@@ -23,7 +23,7 @@
     }
 
     // recuper l'id del viaggio
-    $travel_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    $travel_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
     // Recupera le informazioni del viaggio dal database
     $stmt = $conn->prepare("SELECT id, user_id, name, description FROM travels WHERE id = ? AND user_id = ?");
     $stmt->bind_param("ii", $travel_id, $_SESSION['user_id']);
@@ -73,6 +73,9 @@
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Descrizione Tappa</label>
                                     <input placeholder="Inserisci la descrizione della tappa da creare" type="text" class="form-control" id="description" name="description" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="hidden" id="travel_id" name="travel_id" value="<?php echo $travel_id; ?>" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             </form>
