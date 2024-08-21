@@ -5,10 +5,10 @@
 
     // Controlla se l'utente è loggato
     if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php");
+        header("Location: ./www/auth/login.php");
         exit();
     }
-
+    
     // Connessione al database
     $host = 'localhost';
     $dbname = 'travel-app_db';
@@ -88,60 +88,62 @@
                         <h5 class="card-title">Tappe Attive</h5>
                         <p class="card-text">
                             <?php
-                            $dsn = 'mysql:host=localhost;dbname=travel-app_db';
-                            $username = 'root';
-                            $password = 'root';
+                                $dsn = 'mysql:host=localhost;dbname=travel-app_db';
+                                $username = 'root';
+                                $password = 'root';
 
-                            try {
-                                $pdo = new PDO($dsn, $username, $password);
-                                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                try {
+                                    $pdo = new PDO($dsn, $username, $password);
+                                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                                // Esegui la query
-                                $sql = 'SELECT id, stage_name, stage_address, stage_description, stage_completed FROM stages';
-                                $stmt = $pdo->query($sql);
+                                    // Esegui la query con filtro per user_id
+                                    $sql = 'SELECT id, user_id, stage_name, stage_address, stage_description, stage_completed FROM stages WHERE user_id = :user_id';
+                                    $stmt = $pdo->prepare($sql);
+                                    $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+                                    $stmt->execute();
 
-                                // Ciclare attraverso i risultati
-                                if ($stmt->rowCount() > 0) {
-                                    echo '<table class="table table-striped">';
-                                    echo '
-                                        <thead>
-                                            <tr>
-                                                <th>Nome Tappa</th>
-                                                <th>Indirizzo Tappa</th>
-                                                <th>Descrizione Tappa</th>
-                                                <th>Azioni</th>
-                                            </tr>
-                                        </thead>';
-                                    echo '<tbody>';
-                                    while ($travel = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                        $isCompleted = $travel['stage_completed'] == 1;
-                                        $strikeThrough = $isCompleted ? 'style="text-decoration: line-through;"' : '';
-                                        echo '<tr>';
-                                        echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_name']) . '</td>';
-                                        echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_address']) . '</td>';
-                                        echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_description']) . '</td>';
-                                        echo '<td class="d-flex">';
-                                        // stage_completed update
-                                        echo '<form method="post" action="./www/update_stage.php">';
-                                        echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
-                                        echo '<button type="submit" class="mt-a btn">' . ($isCompleted ? '<i class="fa-solid fa-times"></i>' : '<i class="fa-solid fa-check"></i>') . '</button>';
-                                        echo '</form>';
-                                        // stage_delete
-                                        echo '<form method="post" action="./www/delete_stage.php">';
-                                        echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
-                                        echo '<button type="submit" class="mt-a btn"><i class="fa-solid fa-trash-can"></i></button>';
-                                        echo '</form>';
-                                        echo '</tr>';
-                                        echo '</td>';
+                                    // Ciclare attraverso i risultati
+                                    if ($stmt->rowCount() > 0) {
+                                        echo '<table class="table table-striped">';
+                                        echo '
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome Tappa</th>
+                                                    <th>Indirizzo Tappa</th>
+                                                    <th>Descrizione Tappa</th>
+                                                    <th>Azioni</th>
+                                                </tr>
+                                            </thead>';
+                                        echo '<tbody>';
+                                        while ($travel = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                            $isCompleted = $travel['stage_completed'] == 1;
+                                            $strikeThrough = $isCompleted ? 'style="text-decoration: line-through;"' : '';
+                                            echo '<tr>';
+                                            echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_name']) . '</td>';
+                                            echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_address']) . '</td>';
+                                            echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_description']) . '</td>';
+                                            echo '<td class="d-flex">';
+                                            // stage_completed update
+                                            echo '<form method="post" action="./www/update_stage.php">';
+                                            echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
+                                            echo '<button type="submit" class="mt-a btn">' . ($isCompleted ? '<i class="fa-solid fa-times"></i>' : '<i class="fa-solid fa-check"></i>') . '</button>';
+                                            echo '</form>';
+                                            // stage_delete
+                                            echo '<form method="post" action="./www/delete_stage.php">';
+                                            echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
+                                            echo '<button type="submit" class="mt-a btn"><i class="fa-solid fa-trash-can"></i></button>';
+                                            echo '</form>';
+                                            echo '</tr>';
+                                            echo '</td>';
+                                        }
+                                        echo '</tbody>';
+                                        echo '</table>';
+                                    } else {
+                                        echo '<p>Nessuna tappa presente in questo momento.</p>';
                                     }
-                                    echo '</tbody>';
-                                    echo '</table>';
-                                } else {
-                                    echo '<p>Nessuna tappa presente in questo momento.</p>';
+                                } catch (PDOException $e) {
+                                    echo '<p class="text-danger">Errore: ' . $e->getMessage() . '</p>';
                                 }
-                            } catch (PDOException $e) {
-                                echo '<p class="text-danger">Errore: ' . $e->getMessage() . '</p>';
-                            }
                             ?>
                         </p>
                     </div>
@@ -162,5 +164,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <?php
-include __DIR__ . "/Views/footer.php";
+    include __DIR__ . "/Views/footer.php";
 ?>
