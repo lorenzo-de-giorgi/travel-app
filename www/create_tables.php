@@ -22,6 +22,7 @@
 
         CREATE TABLE IF NOT EXISTS stages (
             id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
             travel_id INT NOT NULL,
             stage_name VARCHAR(255) NOT NULL,
             stage_address VARCHAR(255) NOT NULL,
