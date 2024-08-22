@@ -39,7 +39,7 @@
             $row = $result->fetch_assoc();
             $travel_id = $row['travel_id'];
             // Costruisci l'URL di reindirizzamento usando il travel_id
-            $redirect_url = '../travel.php?travel_id=' . htmlspecialchars($travel_id);
+            $redirect_url = '../travel.php?id=' . htmlspecialchars($travel_id);
 
             // Creazione della query di cancellazione
             $sql = "DELETE FROM stages WHERE id = ?";
