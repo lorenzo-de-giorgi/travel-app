@@ -62,7 +62,7 @@
 
         <main>
             <div class="container">
-                <h2 class="text-center">I Miei Viaggi</h2>
+                <h2 class="text-center mt-4">I Miei Viaggi</h2>
                 <div class="row mt-5">
                     <div class="col-6">   
                         <div class="card mb-4">
