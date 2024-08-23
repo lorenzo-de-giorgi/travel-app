@@ -7,7 +7,9 @@
     require '../config.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $name = $_POST['name'];
         $username = $_POST['username'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];
 
@@ -25,10 +27,14 @@
             // creo la connessione
             $conn = new mysqli($servername, $username_db, $password, $dbname);
 
+            if ($conn->connect_error) {
+                die("Connessione fallita: " . $conn->connect_error);
+            }
+
             try {
                 // Prepare the SQL statement
-                $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-                $stmt->bind_param('ss', $username, $hashed_password);
+                $stmt = $conn->prepare("INSERT INTO users (name, username, email, password) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param('ssss', $name, $username, $email, $hashed_password);
                 $stmt->execute();
 
                 echo "Registrazione avvenuta con successo. <a href='login.php'>Clicca qui per effettuare il login</a>";
@@ -39,6 +45,9 @@
                     echo "Errore nella registrazione: " . $e->getMessage();
                 }
             }
+
+            $stmt->close();
+            $conn->close();
         }
     }
 ?>
@@ -70,7 +79,7 @@
                         <!-- email -->
                         <div class="login__field">
                             <i class="login__icon fas fa-user"></i>
-                            <input class="login__input" type="text" name="email" placeholder="Email" required>
+                            <input class="login__input" type="email" name="email" placeholder="Email" required>
                         </div>
                         <!-- password -->
                         <div class="login__field">
