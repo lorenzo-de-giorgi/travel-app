@@ -2,6 +2,15 @@
     require 'db.php';
 
     try {
+        $db_name = 'travel-app_db';
+        $pdo = new PDO("mysql:host=$host", $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "CREATE DATABASE IF NOT EXISTS `$db_name`";
+        $pdo->exec($sql);
+        echo "Database creato con successo (se non esisteva già).<br>";
+
+        $pdo->exec("USE `$dbname`");
         $sql = "
         
         CREATE TABLE IF NOT EXISTS users (
