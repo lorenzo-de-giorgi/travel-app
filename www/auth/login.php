@@ -59,30 +59,30 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../css/login.css">
-        <title>Login</title>
+        <link rel="stylesheet" href="../../css/register.css">
+        <title>Accesso</title>
     </head>
     <body>
         <div class="container">
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login" method="POST" action="">
-                        <h2>Login</h2>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input class="login__input" type="text" id="username" name="username" required>
+            <div class="register-form">
+                <form method="POST" action="">
+                    <h2 class="text-center mb-5">Form Di Accesso</h2>
+                    <div class="text-center row g-3">
+                        <!-- username -->
+                        <div class="col-12">
+                            <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
                         </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input class="login__input" type="password" id="password" name="password" required>
+                        <!-- password -->
+                        <div class="col-12">
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <button class="button login__submit">
-                            <span class="button__text">Log In Now</span>
-                            <i class="button__icon fas fa-chevron-right"></i>
-                        </button>
-                        <p class="mt-5">Non sei ancora registrato? <a class="login-a" href="./register.php">Registrati</a></p>			
-                    </form>
-                </div>
+                        <!-- login button -->
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Accedi</button>
+                        </div>
+                        <p class="mt-5">Non sei ancora registrato? <a href="./register.php">Registrati</a></p>	
+                    </div>		
+                </form>
             </div>
         </div>
     </body>

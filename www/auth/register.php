@@ -90,7 +90,7 @@
                         </div>
                         <!-- register -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button type="submit" class="btn btn-primary">Registrati</button>
                         </div>
                         <p class="mt-3">Sei già registrato? <a class="login-a" href="./login.php">Accedi</a></p>
                     </div>			
