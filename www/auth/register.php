@@ -38,6 +38,8 @@
                 $stmt->execute();
 
                 echo "Registrazione avvenuta con successo. <a href='login.php'>Clicca qui per effettuare il login</a>";
+                // dopo la registrazione reinderizza alla pagina di login
+                header("Location: login.php");
             } catch (mysqli_sql_exception $e) {
                 if ($e->getCode() === 1062) { // Duplicate entry error code
                     echo "Questo username è già in uso. Scegli un altro username.";
