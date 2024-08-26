@@ -59,38 +59,33 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="../../css/login.css"> -->
+        <link rel="stylesheet" href="../../css/register.css">
         <title>Register</title>
     </head>
     <body>
-        <div class="container">
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login" method="POST" action="">
-                        <h2>Register</h2>
+        <div class="container-sm">
+            <div class="register-form">
+                <form class="login" method="POST" action="">
+                    <h2 class="text-center">Form Di Registrazione</h2>
+                    <div class="text-center">
                         <!-- name -->
                         <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
                             <input class="login__input" type="text" name="name" placeholder="Name" required>
                         </div>
                         <!-- username -->
                         <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
                             <input class="login__input" type="text" name="username" placeholder="Username" required>
                         </div>
                         <!-- email -->
                         <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
                             <input class="login__input" type="email" name="email" placeholder="Email" required>
                         </div>
                         <!-- password -->
                         <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
                             <input class="login__input" type="password" name="password" placeholder="Password" required>
                         </div>
                         <!-- confirm password -->
                         <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
                             <input class="login__input" type="password" name="password_confirm" placeholder="Conferma Password" required>
                         </div>
                         <!-- register -->
@@ -98,9 +93,9 @@
                             <span class="button__text">Register Now</span>
                             <i class="button__icon fas fa-chevron-right"></i>
                         </button>
-                        <p class="mt-3">Sei già registrato? <a class="login-a" href="./login.php">Accedi</a></p>			
-                    </form>
-                </div>
+                        <p class="mt-3">Sei già registrato? <a class="login-a" href="./login.php">Accedi</a></p>
+                    </div>			
+                </form>
             </div>
         </div>
     </body>
