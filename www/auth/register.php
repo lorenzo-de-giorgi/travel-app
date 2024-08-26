@@ -65,34 +65,33 @@
     <body>
         <div class="container-sm">
             <div class="register-form">
-                <form class="login" method="POST" action="">
-                    <h2 class="text-center">Form Di Registrazione</h2>
-                    <div class="text-center">
+                <form method="POST" action="">
+                    <h2 class="text-center mb-5">Form Di Registrazione</h2>
+                    <div class="text-center row g-3">
                         <!-- name -->
-                        <div class="login__field">
-                            <input class="login__input" type="text" name="name" placeholder="Name" required>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="name" placeholder="Name" required>
                         </div>
                         <!-- username -->
-                        <div class="login__field">
-                            <input class="login__input" type="text" name="username" placeholder="Username" required>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
                         </div>
                         <!-- email -->
-                        <div class="login__field">
-                            <input class="login__input" type="email" name="email" placeholder="Email" required>
+                        <div class="col-12">
+                            <input class="form-control" type="email" name="email" placeholder="Email" required>
                         </div>
                         <!-- password -->
-                        <div class="login__field">
-                            <input class="login__input" type="password" name="password" placeholder="Password" required>
+                        <div class="col-md-6">
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
                         </div>
                         <!-- confirm password -->
-                        <div class="login__field">
-                            <input class="login__input" type="password" name="password_confirm" placeholder="Conferma Password" required>
+                        <div class="col-md-6">
+                            <input class="form-control" type="password" name="password_confirm" placeholder="Conferma Password" required>
                         </div>
                         <!-- register -->
-                        <button class="button login__submit">
-                            <span class="button__text">Register Now</span>
-                            <i class="button__icon fas fa-chevron-right"></i>
-                        </button>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </div>
                         <p class="mt-3">Sei già registrato? <a class="login-a" href="./login.php">Accedi</a></p>
                     </div>			
                 </form>
