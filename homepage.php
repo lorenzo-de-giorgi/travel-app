@@ -27,7 +27,41 @@
 </header>
 
 <main>
-    
+    <header>
+        <h1 class="text-center mt-4">Benvenuti su MyTravel</h1>
+        <p class="mt-3">La tua app per pianificare e gestire i tuoi viaggi in modo semplice e intuitivo!</p>
+    </header>
+
+    <section class="mt-4">
+        <h2 class="text-center">Cos'è MyTravel?</h2>
+        <p class="mt-3">MyTravel è un'applicazione che ti permette di organizzare i tuoi viaggi in pochi semplici passi. Con MyTravel, puoi creare itinerari personalizzati, aggiungere tappe, cancellarle se necessario, e segnare come completate le attività che hai portato a termine.</p>
+    </section>
+
+    <section class="mt-4">
+        <h2>Caratteristiche principali</h2>
+        <ul class="centered-list">
+            <li class="mt-3"><strong>Registrazione Facile:</strong> Crea un account in pochi minuti e inizia subito a pianificare i tuoi viaggi.</li>
+            <li class="mt-3"><strong>Crea Viaggi Personalizzati:</strong> Aggiungi, modifica e rimuovi tappe in base alle tue preferenze.</li>
+            <li class="mt-3"><strong>Gestisci le Tappe:</strong> Puoi facilmente cancellare le tappe che non ti interessano più o segnare come completate quelle che hai già visitato.</li>
+            <li class="mt-3"><strong>Interfaccia Intuitiva:</strong> L'interfaccia user-friendly rende la gestione dei tuoi viaggi un'esperienza piacevole.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Come funziona?</h2>
+        <p>Seguire i seguenti passi per iniziare a usare ViaggiPlan:</p>
+        <ul class="centered-list">
+            <li><strong>Registrati:</strong> Crea un account inserendo i tuoi dati personali.</li>
+            <li><strong>Crea un nuovo viaggio:</strong> Inserisci la destinazione, le date e inizia ad aggiungere tappe.</li>
+            <li><strong>Aggiungi tappe:</strong> Puoi inserire dettagli come luoghi da visitare, ristoranti, attività e altro.</li>
+            <li><strong>Gestisci il tuo itinerario:</strong> Modifica, cancella o segna come completate le tappe del tuo viaggio in qualsiasi momento.</li>
+        </ul>
+    </section>
+
+    <section class="mt-4">
+        <h2>Inizia oggi stesso!</h2>
+        <p>Non aspettare! Registrati ora e inizia a pianificare il tuo prossimo viaggio con MyTravel.</p>
+    </section>
 </main>
 
 <?php
