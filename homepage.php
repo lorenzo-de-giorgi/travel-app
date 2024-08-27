@@ -58,10 +58,10 @@
         </ul>
     </section>
 
-    <!-- <section class="mt-4">
+    <section class="mt-4">
         <h2>Inizia oggi stesso!</h2>
         <p>Non aspettare! Registrati ora e inizia a pianificare il tuo prossimo viaggio con MyTravel.</p>
-    </section> -->
+    </section>
 </main>
 
 <?php
