@@ -43,7 +43,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/travels-page.css">
         <title>I Miei Viaggi</title>
     </head>
     <body>
@@ -53,7 +53,7 @@
                     <nav class="d-flex justify-content-between align-items-center">
                         <img src="./img/logo.png" alt="logo" id="mt-logo">
                         <ul class="list-unstyled">
-                            <!-- <li class="mt-3"><a class="mt-delete" href="">Cancella Viaggio</a></li> -->
+                            <li class="mt-3"><a class="mt-btn" href=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Esci</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -96,7 +96,7 @@
                                             <label for="description" class="form-label">Descrizione Viaggio</label>
                                             <input placeholder="Inserisci la descrizione del viaggio da creare" type="text" class="form-control" id="description" name="description" required>
                                         </div>
-                                        <button type="submit" class="btn btn-primary mt-3">Crea</button>
+                                        <button type="submit" class="mt-creation-button mt-3">Crea</button>
                                     </form>
                                 </p>
                             </div>
