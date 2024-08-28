@@ -1,0 +1,36 @@
+:root{
+    --black: #222831;
+    --gray: #31363F;
+    --teal-color: #76ABAE;
+    --white-color: #EEEEEE;
+}
+
+.mt-btn{
+    color: var(--white-color);
+    text-decoration: none;
+    border: 1px solid var(--white-color);
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.mt-btn:hover{
+    background-color: var(--white-color);
+    color: var(--teal-color);
+    transition: 0.3s;
+}
+
+.mt-creation-button{
+    color: var(--white-color);
+    text-decoration: none;
+    border: 1px solid var(--teal-color);
+    background-color: var(--teal-color);
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.mt-creation-button:hover{
+    background-color: var(--white-color);
+    color: var(--teal-color);
+    border: 1px solid var(--teal-color);
+    transition: 0.3s;
+}
