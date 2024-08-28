@@ -59,12 +59,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../css/register.css">
+        <!-- <link rel="stylesheet" href=""> -->
         <title>Accesso</title>
     </head>
     <body>
         <div class="container">
-            <div class="register-form">
+            <a href="../../homepage.php" class="mt-3 btn btn-primary"><i class="fa-solid fa-house"></i> Homepage</a>
+            <div class="mt-5">
                 <form method="POST" action="">
                     <h2 class="text-center mb-5">Form Di Accesso</h2>
                     <div class="text-center row g-3">
