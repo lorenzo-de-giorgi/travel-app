@@ -53,7 +53,7 @@
                     <nav class="d-flex justify-content-between align-items-center">
                         <img src="./img/logo.png" alt="logo" id="mt-logo">
                         <ul class="list-unstyled">
-                            <li class="mt-3"><a class="mt-btn" href=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Esci</a></li>
+                            <li class="mt-3"><a class="mt-btn" href="./www/auth/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Esci</a></li>
                         </ul>
                     </nav>
                 </div>
