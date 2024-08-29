@@ -63,6 +63,7 @@
         <main>
             <div class="container">
                 <h2 class="text-center mt-4">I Miei Viaggi</h2>
+                <h5 class="text-center mt-3">Benvenuto <?php echo $_SESSION['username'] ?></h5>
                 <div class="row mt-5">
                     <div class="col-6">   
                         <div class="card mb-4">
