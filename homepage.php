@@ -12,7 +12,20 @@
     <title>Homepage</title>
 </head>
 
-<header>
+<div class="mt-nav">
+    <nav class="container navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+        <img src="./img/logo.png" alt="logo" id="mt-logo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+            <li class="mt-3 me-3"><a class="mt-login-btn" href="./www/auth/login.php">Login</a></li>
+            <li class="me-3 mt-3"><a class="mt-register-btn" href="./www/auth/register.php">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- <header>
     <div class="mt-nav">
         <div class="container">
             <nav class="d-flex justify-content-between align-items-center">
@@ -24,7 +37,7 @@
             </nav>
         </div>
     </div>
-</header>
+</header> -->
 
 <main>
     <header>
@@ -63,6 +76,8 @@
         <p>Non aspettare! Registrati ora e inizia a pianificare il tuo prossimo viaggio con MyTravel.</p>
     </section>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <?php
     include __DIR__ . "./Views/footer.php";
