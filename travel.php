@@ -71,6 +71,10 @@
                                     <input placeholder="Inserisci l'indirizzo della tappa da creare" type="text" class="form-control" id="address" name="address" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="stage_date" class="form-label">Data Tappa</label>
+                                    <input type="date" class="form-control" id="stage_date" name="stage_date" required min="<?php echo date('Y-m-d'); ?>">
+                                </div>
+                                <div class="mb-3">
                                     <label for="description" class="form-label">Descrizione Tappa</label>
                                     <input placeholder="Inserisci la descrizione della tappa da creare" type="text" class="form-control" id="description" name="description" required>
                                 </div>
