@@ -27,21 +27,23 @@
         $description = isset($_POST['description']) ? $_POST['description'] : '';
         $travel_id = isset($_POST['travel_id']) ? $_POST['travel_id'] : '';
         $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+        $date = isset($_POST['stage_date']) ? $_POST['stage_date'] : '';
         $coordinates = getCoordinatesFromAddress($address);
 
         echo "<p>Nome: " . htmlspecialchars($name) . "</p>";
         echo "<p>User ID: " . htmlspecialchars($user_id) . "</p>";
         echo "<p>Travel ID: " . htmlspecialchars($travel_id) . "</p>";
         echo "<p>Indirizzo: " . htmlspecialchars($address) . "</p>";
+        echo "<P>Data: " . htmlspecialchars($date) . "</p>";
         echo "<p>Descrizione: " . htmlspecialchars($description) . "</p>";
         echo "<p>Latitudine: " . htmlspecialchars($coordinates['latitude']) . "</p>";
         echo "<p>Longitudine: " . htmlspecialchars($coordinates['longitude']) . "</p>";
 
         try {
             // Prepara e esegui la query di inserimento
-            $sql = "INSERT INTO stages (user_id, travel_id, stage_name, stage_address, stage_description, stage_latitude, stage_longitude) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO stages (user_id, travel_id, stage_name, stage_address, stage_description, stage_latitude, stage_longitude, stage_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$user_id, $travel_id, $name, $address, $description, $coordinates['latitude'], $coordinates['longitude']]);
+            $stmt->execute([$user_id, $travel_id, $name, $address, $description, $coordinates['latitude'], $coordinates['longitude'], $date]);
 
             echo "<p class='text-success'>Dati salvati con successo</p>";
         } catch (PDOException $e) {
