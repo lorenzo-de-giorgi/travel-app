@@ -115,6 +115,7 @@
                                                 </tr>
                                             </thead>';
                                         echo '<tbody>';
+
                                         while ($travel = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                             $isCompleted = $travel['stage_completed'] == 1;
                                             $strikeThrough = $isCompleted ? 'style="text-decoration: line-through;"' : '';
@@ -122,17 +123,19 @@
                                             echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_name']) . '</td>';
                                             echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_address']) . '</td>';
                                             echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_description']) . '</td>';
-                                            echo '<td class="d-flex">';
+                                            echo '<td class="text-center">';
+                                            echo '<div class="d-flex justify-content-center">';
                                             // stage_completed update
-                                            echo '<form method="post" action="./www/update_stage.php">';
+                                            echo '<form method="post" action="./www/update_stage.php" class="me-1">';
                                             echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
-                                            echo '<button type="submit" class="mt-a btn">' . ($isCompleted ? '<i class="fa-solid fa-times"></i>' : '<i class="fa-solid fa-check"></i>') . '</button>';
+                                            echo '<button type="submit" class="btn btn-sm btn-success">' . ($isCompleted ? '<i class="fa-solid fa-times"></i>' : '<i class="fa-solid fa-check"></i>') . '</button>';
                                             echo '</form>';
                                             // stage_delete
                                             echo '<form method="post" action="./www/delete_stage.php">';
                                             echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
-                                            echo '<button type="submit" class="mt-a btn"><i class="fa-solid fa-trash-can"></i></button>';
+                                            echo '<button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></button>';
                                             echo '</form>';
+                                            echo '</div>';
                                             echo '</tr>';
                                             echo '</td>';
                                         }
