@@ -41,6 +41,7 @@
             stage_latitude DECIMAL(12, 10) NOT NULL,
             stage_longitude DECIMAL(12, 10) NOT NULL,
             stage_completed BOOLEAN NOT NULL DEFAULT 0,
+            stage_date DATE NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (travel_id) REFERENCES travels(id) ON DELETE CASCADE
