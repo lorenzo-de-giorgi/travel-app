@@ -101,7 +101,7 @@
                                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                                     // Esegui la query con filtro per user_id
-                                    $sql = 'SELECT id, user_id, stage_name, stage_address, stage_description, stage_completed FROM stages WHERE user_id = :user_id';
+                                    $sql = 'SELECT id, user_id, stage_name, stage_address, stage_description, stage_completed, stage_date FROM stages WHERE user_id = :user_id';
                                     $stmt = $pdo->prepare($sql);
                                     $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
                                     $stmt->execute();
@@ -112,9 +112,10 @@
                                         echo '
                                             <thead>
                                                 <tr>
-                                                    <th>Nome Tappa</th>
-                                                    <th>Indirizzo Tappa</th>
-                                                    <th>Descrizione Tappa</th>
+                                                    <th>Nome</th>
+                                                    <th>Indirizzo</th>
+                                                    <th>Descrizione</th>
+                                                    <th>Data</th>
                                                     <th>Azioni</th>
                                                 </tr>
                                             </thead>';
@@ -127,6 +128,7 @@
                                             echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_name']) . '</td>';
                                             echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_address']) . '</td>';
                                             echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_description']) . '</td>';
+                                            echo '<td ' . $strikeThrough . '>' . htmlspecialchars($travel['stage_date']) . '</td>';
                                             echo '<td class="text-center">';
                                             echo '<div class="d-flex justify-content-center">';
                                             // stage_completed update
