@@ -6,7 +6,7 @@
     <title>Salvataggio Dati</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- tage per redirect dopo 5 secondi -->
-    <meta http-equiv="refresh" content="5;url=../travels.php">
+    <meta http-equiv="refresh" content="0;url=../travels.php">
 </head>
 <body>
     <div class="container mt-5">

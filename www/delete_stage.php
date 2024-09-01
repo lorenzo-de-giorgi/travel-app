@@ -69,7 +69,7 @@
     }
     ?>
     <!-- Redirezione automatica dopo 5 secondi -->
-    <meta http-equiv="refresh" content="5;url=<?php echo $redirect_url; ?>">
+    <meta http-equiv="refresh" content="0;url=<?php echo $redirect_url; ?>">
 </head>
 <body>
     <div class="container mt-5">
