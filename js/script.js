@@ -27,7 +27,7 @@ window.onload = function() {
       // Estraiamo l'ID del viaggio dall'URL
       let urlParams = new URLSearchParams(window.location.search);
       let travelId = urlParams.get('id');
-
+      console.log(travelId);
       if (String(stage.travel_id) === travelId) { // Confronta come stringhe
         if (stage.stage_longitude && stage.stage_latitude) { // Verifica i dati
           new tt.Marker().setLngLat([stage.stage_longitude, stage.stage_latitude]).addTo(map);
