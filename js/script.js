@@ -9,11 +9,17 @@ window.onload = function() {
     });
 
     // Funzione per ottenere i marker dal server
-    function fetchStages() {
+    function fetchStages(travel_id) {
         return fetch('api/stages.php') // Supponendo che l'API si trovi a questo endpoint
             .then(response => response.json())
             .then(data => {
-                return data.stages; // Adatta questa linea in base al formato della risposta JSON
+                // Filtra i marker in base al travel_id
+                const filteredStages = data.stages.filter(stage => stage.travel_id === travel_id);
+                return filteredStages; // Restituisci solo i marker filtrati
+            })
+            .catch(error => {
+                console.error('Errore nel recupero delle tappe:', error);
+                return []; // Restituisci un array vuoto in caso di errore
             });
     }
 
