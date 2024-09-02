@@ -160,7 +160,7 @@
                                             echo '</form>';
                                             // stage_edit
                                             echo '<form method="post" action="./www/modify_stage.php" class="ms-1">';
-                                            echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
+                                            echo '<input type="hidden" name="id" value="">';
                                             echo '<button type="submit" class="btn btn-sm btn-primary" disabled><i class="fa-solid fa-pen"></i></button>';
                                             echo '</form>';
                                             echo '</div>';
