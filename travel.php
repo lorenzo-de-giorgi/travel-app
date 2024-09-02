@@ -158,6 +158,11 @@
                                             echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
                                             echo '<button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></button>';
                                             echo '</form>';
+                                            // stage_edit
+                                            echo '<form method="post" action="./www/modify_stage.php" class="ms-1">';
+                                            echo '<input type="hidden" name="id" value="' . htmlspecialchars($travel['id']) . '">';
+                                            echo '<button type="submit" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen"></i></button>';
+                                            echo '</form>';
                                             echo '</div>';
                                             echo '</tr>';
                                             echo '</td>';
